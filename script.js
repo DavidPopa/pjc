@@ -110,13 +110,14 @@ const final = [
       "Keep soaring to new heights and embracing the thrill of the game. Until we meet again, may your journey be filled with joy and triumph! Goodbye, and happy jumping!",
   },
 ];
+
+
 let characters = [];
 function words(words) {
   words.forEach((line, index) => {
     if (index < words.length - 1) {
       line.string += " ";
     }
-
     line.string.split("").forEach((character) => {
       let span = document.createElement("span");
       span.textContent = character;
@@ -131,10 +132,10 @@ function words(words) {
   });
 }
 // words(into);
-// words(movements);
+words(movements);
 // words(gameWorks);
 // words(attack);
-words(final);
+// words(final);
 
 function revealOneCharacter(list) {
   let next = list.splice(0, 1)[0];
