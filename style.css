@@ -1,132 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&display=swap");
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
-img {
+.container {
   width: 100%;
-}
-.login {
   height: 100vh;
-  width: 100%;
-  background: radial-gradient(#653d84, #332042);
-  position: relative;
-}
-.login_box {
-  width: 1050px;
-  height: 600px;
   position: absolute;
-  top: 50%;
+}
+.textbox {
+  background-color: #cccdcf;
+  display: flex;
+  width: 900px;
+  height: 300px;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Fraunces", serif;
+  font-size: 1rem;
+  position: relative;
+  top: 90%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 1px 4px 22px -8px #0004;
-  display: flex;
-  overflow: hidden;
+  transform: translate(-50%, -90%);
 }
-.login_box .left {
-  width: 41%;
-  height: 100%;
-  padding: 25px 25px;
+.text {
+  width: 500px;
 }
-.login_box .right {
-  width: 59%;
-  height: 100%;
+.text span {
+  opacity: 0;
 }
-.left .top_link a {
-  color: #452a5a;
-  font-weight: 400;
+.text span.revealed {
+  opacity: 1;
 }
-.left .top_link {
-  height: 20px;
+.text span.green {
+  color: #27ae60;
 }
-.left .contact {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
-  height: 100%;
-  width: 73%;
-  margin: auto;
+.text span.red {
+  color: #ff0000;
 }
-.left h2 {
-  text-align: center;
-  margin-bottom: 40px;
-}
-.login-icons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
-}
-.icon {
-  list-style-type: none;
-}
-.icon button {
-  cursor: pointer;
-  border: none;
-  background-color: inherit;
-  transition: all 0.3s;
-}
-.icon button:hover {
-  background-color: #dadada;
-}
-.left input {
-  border: none;
-  width: 80%;
-  margin: 15px 0px;
-  border-bottom: 1px solid #4f30677d;
-  padding: 7px 9px;
-  width: 100%;
-  overflow: hidden;
-  background: transparent;
-  font-weight: 600;
-  font-size: 14px;
-}
-.left {
-  background: linear-gradient(-45deg, #dcd7e0, #fff);
-}
-.submit {
-  border: none;
-  padding: 15px 70px;
-  border-radius: 8px;
-  display: block;
-  margin: auto;
-  margin-top: 120px;
-  background: #583672;
-  color: #fff;
-  font-weight: bold;
-  -webkit-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
-  -moz-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
-  box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
-  cursor: pointer;
-}
-
-.right {
-  background: url(images/tumblr_p0ewidN0eL1tlgv32o1_540.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #c0c0c0;
-  position: relative;
-}
-
-.right .right-text {
-  height: 100%;
-  position: relative;
-  transform: translate(0%, 33%);
-}
-.right-text h2 {
-  display: block;
-  width: 100%;
-  text-align: center;
-  font-size: 50px;
-  font-weight: 500;
-}
-.right-text h5 {
-  display: block;
-  width: 100%;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 400;
+img {
+  width: 200px;
 }
