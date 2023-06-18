@@ -1,31 +1,61 @@
-// import { initializeApp } from "firebase/app";
-// const firebaseConfig = {
-//   apiKey: "AIzaSyBycLnWlKUZFvkzLaRmHFOkAYhy_2vs7FE",
-//   authDomain: "pjc-game.firebaseapp.com",
-//   projectId: "pjc-game",
-//   storageBucket: "pjc-game.appspot.com",
-//   messagingSenderId: "517358644583",
-//   appId: "1:517358644583:web:0fe8823bc68a64b0ef13c2",
-//   measurementId: "G-EZLQ0664PF",
-// };
-// const provider = new firebase.auth.GoogleAuthProvider();
-// const app = firebase.initializeApp(firebaseConfig);
-// const analytics = firebase.analytics();
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+import {
+  getAuth,
+  onAuthStateChanged,
+} from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 
-// const gmail = document.getElementById("gmail");
-// gmail.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   gmailLogin();
-// });
+const start = document.getElementById("start");
+const opt = document.getElementById("opt");
+const popup = document.getElementById("popup");
+const closeBtn = document.querySelector(".close");
+const popupText = document.getElementsByClassName("popup-content");
 
-// function gmailLogin() {
-//   firebase
-//     .auth()
-//     .signInWithPopup(provider)
-//     .then((result) => {
-//       console.log(result);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// }
+const firebaseConfig = {
+  apiKey: "AIzaSyBycLnWlKUZFvkzLaRmHFOkAYhy_2vs7FE",
+  authDomain: "pjc-game.firebaseapp.com",
+  projectId: "pjc-game",
+  storageBucket: "pjc-game.appspot.com",
+  messagingSenderId: "517358644583",
+  appId: "1:517358644583:web:0fe8823bc68a64b0ef13c2",
+  measurementId: "G-EZLQ0664PF",
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+onAuthStateChanged(auth, function (user) {
+  if (user) {
+    console.log(user.displayName);
+    console.log(user.email);
+    const child = document.createElement("h4");
+    child.innerHTML = `Your name is ${user.displayName} and your email is ${user.email}`;
+    popupText[0].appendChild(child);
+  } else {
+    console.log("Not log in");
+  }
+});
+
+let isOpen = false;
+
+start.addEventListener("click", (e) => {
+  e.preventDefault();
+  window.location.href = ""; // Replace with your game page URL
+});
+
+opt.addEventListener("click", (e) => {
+  e.preventDefault();
+  togglePopup();
+});
+
+closeBtn.addEventListener("click", () => {
+  togglePopup();
+});
+
+function togglePopup() {
+  isOpen = !isOpen;
+  if (isOpen) {
+    popup.style.display = "block";
+  } else {
+    popup.style.display = "none";
+  }
+}
