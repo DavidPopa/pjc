@@ -25,13 +25,11 @@ const auth = getAuth(app);
 
 onAuthStateChanged(auth, function (user) {
   if (user) {
-    console.log(user.displayName);
-    console.log(user.email);
     const child = document.createElement("h4");
     child.innerHTML = `Your name is ${user.displayName} and your email is ${user.email}`;
     popupText[0].appendChild(child);
   } else {
-    console.log("Not log in");
+    alert("Not log in");
   }
 });
 
@@ -45,6 +43,12 @@ start.addEventListener("click", (e) => {
 opt.addEventListener("click", (e) => {
   e.preventDefault();
   togglePopup();
+});
+
+opt.addEventListener("keydown", (e) => {
+  e.preventDefault();
+
+  if (e.key === "Escape") togglePopup();
 });
 
 closeBtn.addEventListener("click", () => {
